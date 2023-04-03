@@ -5,8 +5,15 @@ from enum import Enum
 from collections import deque
 
 
-#El módulo enum define un tipo de enumeración con capacidades de iteración y comparación. 
-#Puede ser usado para creae símbolos bien definidos para valores, en lugar de usar enteros literales o cadenas.
+# El módulo enum define un tipo de enumeración con capacidades de iteración y comparación. 
+
+# Puede ser usado para creae símbolos bien definidos para valores, en lugar de usar enteros literales o cadenas.
+
+# Para que el agente se mueva primero analiza y lo recauda en dos listas:
+
+# Frontera [] - Hojas y explorado [] - Visitado .
+
+# Los toma como conjuntos y ahí utiliza el deque.
 
 '''
 El paquete tkinter («interfaz Tk») es la interfaz por defecto de Python para el kit de herramientas de GUI Tk.
@@ -994,6 +1001,8 @@ class maze:
                 if a.goal!=(a.x,a.y) and len(p)!=0:
                     self._tracePathSingle(a,p,kill,showMarked,delay)
     def run(self):
+        
+        # Como conclusion no es necesario una estructura de arbol pero si un algoritmo.
 
 # Funcion principal.
 
