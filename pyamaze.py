@@ -82,6 +82,7 @@ class agent:
         '''
         self._parentMaze=parentMaze
         self.color=color
+        # Checa que sean str los elementos de la tupla de color.
         if(isinstance(color,str)):
             if(color in COLOR.__members__):
                 self.color=COLOR[color]
@@ -255,25 +256,39 @@ class agent:
         self._parentMaze._canvas.coords(self._head,*self._coord)
         self._orient=(self._orient+1)%4
 
+# Mover a la derecha.
 
     def moveRight(self,event):
         if self._parentMaze.maze_map[self.x,self.y]['E']==True:
             self.y=self.y+1
+            
+            # mover a la izquierda.
+            
     def moveLeft(self,event):
         if self._parentMaze.maze_map[self.x,self.y]['W']==True:
             self.y=self.y-1
+            
+            # mover arriba.
+            
     def moveUp(self,event):
         if self._parentMaze.maze_map[self.x,self.y]['N']==True:
             self.x=self.x-1
             self.y=self.y
+            
+            # mover abajo.
+            
     def moveDown(self,event):
         if self._parentMaze.maze_map[self.x,self.y]['S']==True:
             self.x=self.x+1
             self.y=self.y
+            
+            # Rotulacion en la ventana del laberinto.
+            
 class textLabel:
 
 # En esta lección vamos a trabajar el widget label utilizado para mostrar textos.
 # Suele ser texto estático, de ahí que se llame label o etiqueta de texto.
+# Constructor del rotulo.
 
     def __init__(self,parentMaze,title,value):
         
@@ -344,10 +359,15 @@ class maze:
         self.markCells=[]
 
         # Indicar que se va a definir una propiedad.
+        
+        # Propiedad malla.
 
     @property
     def grid(self):
         return self._grid
+    
+    # Setter malla.
+    
     @grid.setter        
     def grid(self,n):
         self._grid=[]
@@ -674,6 +694,8 @@ class maze:
                 f.truncate()
 
                 # Constructor del laberinto.
+                
+                # Graficos del laberinto.
 
     def _drawMaze(self,theme):
 
@@ -700,7 +722,7 @@ class maze:
             k=1
         elif self.rows>=70 and self.cols>=70:
             k=1.5
-        elif self.rows>=50 and self.cols>=50:
+         elif self.rows>=50 and self.cols>=50:
             k=2
         elif self.rows>=35 and self.cols>=35:
             k=2.5
